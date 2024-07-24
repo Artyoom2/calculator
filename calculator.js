@@ -36,7 +36,7 @@ document.querySelector(".buttons").onclick = (event) => {
   if (digit.includes(key)) {
     if (b === "" && sign === "") {
       a += key;
-      console.log(a, b, sign);
+
       out.textContent = a;
     } else if (a !== "" && b !== "" && finish) {
       b = key;
@@ -46,14 +46,12 @@ document.querySelector(".buttons").onclick = (event) => {
       b += key;
       out.textContent = b;
     }
-    console.log(a, b, sign);
     return;
   }
   // если нажата клавиша + - / X
   if (operation.includes(key)) {
     sign = key;
     out.textContent = sign;
-    console.log(sign);
     return;
   }
   // нажата =
@@ -81,6 +79,6 @@ document.querySelector(".buttons").onclick = (event) => {
         break;
     }
     finish = true;
-    out.textContent = a;
+    out.textContent = ("" + a).split("").slice(0, 8).join("");
   }
 };
